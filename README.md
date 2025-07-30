@@ -33,7 +33,7 @@ See [SECURITY.md](SECURITY.md) for supported versions and reporting guidelines.
 ## License
 Licensed under the GNU General Public License v3.0. See [LICENSE](LICENSE) for details.
 
-# Clause de non responsabilité.
+## Clause de non responsabilité.
 **The project is delivered as is: I guarantee no support, no updates, no bug fixes.** You are responsible for what you install. That said, if I notice any issues in my personal use of this application, it is not excluded that if I resolve them, I will also resolve them here. I am not necessarily in a position to help you either. I believe an AI will be a much better help than I am. You can send all the data from this project to an AI with my full blessing.
 
 **If you are the developer of Lunar Pro, thank you. ❤️**
