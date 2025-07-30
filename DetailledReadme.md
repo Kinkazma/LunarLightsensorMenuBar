@@ -1,8 +1,8 @@
 # Guide détaillé d’installation et d’utilisation
 
-	Ce document décrit étape par étape comment préparer votre environnement, créer une intégration OAuth 2.0 avec SmartThings et configurer Lunar Sensor MenuBar. L’application permet de relayer les mesures d’un capteur de luminosité SmartThings vers Lunar afin de régler automatiquement la luminosité de votre écran lorsque votre téléviseur est connecté.
+Ce document décrit étape par étape comment préparer votre environnement, créer une intégration OAuth 2.0 avec SmartThings et configurer Lunar Sensor MenuBar. L’application permet de relayer les mesures d’un capteur de luminosité SmartThings vers Lunar afin de régler automatiquement la luminosité de votre écran lorsque votre téléviseur est connecté.
 ## Présentation de l’application
-	Lunar Sensor MenuBar est une utilitaire macOS. Lorsqu’un téléviseur externe est détecté, l’application cesse d’utiliser le capteur de luminosité interne du Mac et interroge un capteur SmartThings toutes les n secondes pour récupérer la valeur de luminosité (en lux). Ces données sont ensuite exposées sur 127.0.0.1:10001/sensor/ambient_light afin que Lunar puisse ajuster la luminosité de vos écrans. Quand votre téléviseur est absent, Lunar revient automatiquement au capteur interne du Mac.
+Lunar Sensor MenuBar est une utilitaire macOS. Lorsqu’un téléviseur externe est détecté, l’application cesse d’utiliser le capteur de luminosité interne du Mac et interroge un capteur SmartThings toutes les n secondes pour récupérer la valeur de luminosité (en lux). Ces données sont ensuite exposées sur 127.0.0.1:10001/sensor/ambient_light afin que Lunar puisse ajuster la luminosité de vos écrans. Quand votre téléviseur est absent, Lunar revient automatiquement au capteur interne du Mac.
 
 ## Prérequis
 	•	Un Mac avec macOS et Xcode pour compiler l’application.
