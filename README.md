@@ -23,7 +23,8 @@ A macOS menu bar utility that forwards ambient light data from a SmartThings sen
 The status bar icon displays `ALS Mac` when using the Mac's sensor or `TV Name` when the SmartThings sensor is active. Use the menu to tweak polling intervals and enable smoothing.
 
 ## Plus d'infos.
-See [DetailledReadme.md](DetailledReadme.md) to have a very detailed explanation of the installation procedure. 
+See [DetailledReadme.md](DetailledReadme.md) to have a very detailed explanation of the installation procedure.
+For more visual comfort, go see: [DetailsReadme.rtfd.zip](DetailsReadme.rtfd.zip)
 
 ## Security
 See [SECURITY.md](SECURITY.md) for supported versions and reporting guidelines.
