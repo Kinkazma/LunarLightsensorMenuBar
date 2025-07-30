@@ -108,38 +108,38 @@ Une fois configurée, Lunar Sensor MenuBar propose plusieurs actions accessibl
 	
  #### Élément du menu
  ### Fonction
-	Luminosité : X lux
-	Affiche la dernière mesure (brute ou recalculée). Cliquer sur ce texte copie la valeur en lux dans le presse‑papiers.
+Luminosité : X lux
+Affiche la dernière mesure (brute ou recalculée). Cliquer sur ce texte copie la valeur en lux dans le presse‑papiers.
  
 #### TV Name : connecté / non connecté
-	Indique si le téléviseur configuré est actuellement détecté. Lorsque l’état passe à « connecté », l’application interroge SmartThings toutes les n secondes ; sinon elle repasse au capteur intégré.
+Indique si le téléviseur configuré est actuellement détecté. Lorsque l’état passe à « connecté », l’application interroge SmartThings toutes les n secondes ; sinon elle repasse au capteur intégré.
  
 #### Délai de rafraîchissement
-	Sous‑menu permettant de choisir l’intervalle entre deux requêtes vers SmartThings (10 s, 20 s, 30 s, 1 min, 2 min ou 8 min). Un intervalle court offre une réactivité optimale mais augmente le trafic réseau et la sollicitation du capteur.
+Sous‑menu permettant de choisir l’intervalle entre deux requêtes vers SmartThings (10 s, 20 s, 30 s, 1 min, 2 min ou 8 min). Un intervalle court offre une réactivité optimale mais augmente le trafic réseau et la sollicitation du capteur.
  
 #### Seconde coulante
-	Active un lissage des transitions de luminosité. Lorsqu’elle est cochée, les changements de luminosité se font progressivement par petites marches plutôt que par à‑coups.
+Active un lissage des transitions de luminosité. Lorsqu’elle est cochée, les changements de luminosité se font progressivement par petites marches plutôt que par à‑coups.
  
 #### Nombre d’intervalles
-	Ce sous‑menu n’apparaît que si Seconde coulante est activée. Il permet de choisir entre 10 et 100 intervalles : plus le nombre est élevé, plus la transition est douce et longue.
+Ce sous‑menu n’apparaît que si Seconde coulante est activée. Il permet de choisir entre 10 et 100 intervalles : plus le nombre est élevé, plus la transition est douce et longue.
  
 #### Connexion → Renseignez vos données
-	Ouvre la fenêtre de configuration pour modifier le TV Name, le Client ID, le Client Secret, le Refresh Token, le Device ID et l’URI de redirection.
+Ouvre la fenêtre de configuration pour modifier le TV Name, le Client ID, le Client Secret, le Refresh Token, le Device ID et l’URI de redirection.
  
 #### Connexion → Vérifier les jetons
-	Effectue une requête de test vers SmartThings afin de vérifier la validité des jetons stockés. Si les jetons sont valides, une alerte « Jetons valides » s’affiche ; sinon, on vous conseille de ré‑autoriser l’application.
+Effectue une requête de test vers SmartThings afin de vérifier la validité des jetons stockés. Si les jetons sont valides, une alerte « Jetons valides » s’affiche ; sinon, on vous conseille de ré‑autoriser l’application.
  
 #### Connexion → Reconnecter SmartThings
-	Génère automatiquement l’URL d’autorisation selon votre configuration et l’ouvre dans votre navigateur. Après avoir autorisé l’accès, copiez le paramètre code de l’URL et collez‑le dans la boîte de dialogue qui s’ouvre ; l’application échange le code contre de nouveaux jetons et les enregistre.
+Génère automatiquement l’URL d’autorisation selon votre configuration et l’ouvre dans votre navigateur. Après avoir autorisé l’accès, copiez le paramètre code de l’URL et collez‑le dans la boîte de dialogue qui s’ouvre ; l’application échange le code contre de nouveaux jetons et les enregistre.
  
 #### Imposer l’échelle
-	Force l’application à convertir les valeurs de lux en pourcentage (2 lx → 10 %, 800 lx → 100 %). Ce mode peut être utile si vous souhaitez que Lunar reçoive une valeur toujours comprise entre 0 et 800, indépendamment de la gamme de votre capteur.
+Force l’application à convertir les valeurs de lux en pourcentage (2 lx → 10 %, 800 lx → 100 %). Ce mode peut être utile si vous souhaitez que Lunar reçoive une valeur toujours comprise entre 0 et 800, indépendamment de la gamme de votre capteur.
  
 #### Exporter les logs
-	Sauvegarde le fichier de journal dans votre dossier Téléchargements pour analyse ou partage.
+Sauvegarde le fichier de journal dans votre dossier Téléchargements pour analyse ou partage.
  
 #### Quitter
-	Ferme l’application et arrête le serveur HTTP local.
+Ferme l’application et arrête le serveur HTTP local.
  
 ## 9 – Conseils et dépannage
 •	TV non détectée ? Vérifiez que le nom saisi dans TV Name correspond exactement à celui affiché par system_profiler. Les minuscules/majuscules et les espaces comptent. Vous pouvez aussi activer dans le code la version alternative de isTVDected() qui détecte tout écran « non‑Apple » (voir les commentaires dans StatusBarController.swift).
