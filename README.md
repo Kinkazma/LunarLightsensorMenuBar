@@ -1,4 +1,5 @@
 # LunarSensorMenuBar
+[DetailledReadme.md](DetailledReadme.md)
 
 A macOS menu bar utility that forwards ambient light data from a SmartThings sensor to Lunar Pro. When a specified television is detected, the app polls SmartThings for illuminance readings and exposes them over a local HTTP server so Lunar can synchronize your display brightness.
 
