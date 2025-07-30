@@ -24,7 +24,7 @@ The status bar icon displays `ALS Mac` when using the Mac's sensor or `TV Name` 
 
 ## Plus d'infos.
 See [DetailledReadme.md](DetailledReadme.md) to have a very detailed explanation of the installation procedure.
-For more visual comfort, go see: [DetailledReadme.rtf](DetailledReadme.rtf)
+For more visual comfort once downloaded, check out: [DetailledReadme.rtf](DetailledReadme.rtf)
 
 ## Security
 See [SECURITY.md](SECURITY.md) for supported versions and reporting guidelines.
