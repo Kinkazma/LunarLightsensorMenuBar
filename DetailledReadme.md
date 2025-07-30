@@ -106,7 +106,7 @@ L’application détecte la présence de votre téléviseur en analysant la sort
 ## 8 – Utilisation du menu et description des fonctions
 Une fois configurée, Lunar Sensor MenuBar propose plusieurs actions accessibles depuis l’icône de la barre de menus :
 	
- #### Élément du menu
+ ### Élément du menu
  ### Fonction
 Luminosité : X lux
 Affiche la dernière mesure (brute ou recalculée). Cliquer sur ce texte copie la valeur en lux dans le presse‑papiers.
