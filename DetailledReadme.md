@@ -63,14 +63,20 @@ Remplacez <CLIENT_ID> par votre client id et <REDIRECT_URI> par l’URI de redi
 Ouvrez cette URL dans votre navigateur, connectez‑vous à votre compte Samsung/SmartThings et cliquez sur Autoriser. Vous êtes redirigé vers votre redirect_uri et l’URL contient un paramètre code=<valeur>. Copiez cette valeur : c’est votre code d’autorisation.
 
 ### 4.2 Échanger le code contre des jetons
-	L’échange s’effectue via une requête HTTP POST vers https://api.smartthings.com/oauth/token avec les paramètres suivants :
+
+L’échange s’effectue via une requête HTTP POST vers https://api.smartthings.com/oauth/token avec les paramètres suivants :
+
 	grant_type=authorization_code client_id=<CLIENT_ID> client_secret=<CLIENT_SECRET> redirect_uri=<REDIRECT_URI> code=<AUTH_CODE> scope=r:devices:*+w:devices:*+x:devices:*
-	Vous pouvez utiliser un outil comme curl ou Postman pour envoyer cette requête. Le même tutoriel fournit un exemple avec curl montrant l’envoi des paramètres encodés et la récupération du access_token et du refresh_token[10]. La réponse JSON contient :
-	•	access_token : token à courte durée de vie (24 heures maximum[11]) utilisé pour interroger l’API SmartThings ;
-	•	refresh_token : token valable 30 jours qui permet d’obtenir un nouvel access_token sans repasser par l’étape d’autorisation[11] ;
-	•	expires_in : durée de validité du jeton d’accès en secondes.
-	Enregistrez précieusement votre refresh_token ; l’application Lunar Sensor MenuBar utilise ce jeton pour renouveler automatiquement l’accès. L’access_token initial peut également être renseigné, mais il sera rafraîchi à l’exécution.
-	Remarque : si vous utilisez un outil graphique comme Postman, veillez à encoder les paramètres en x-www-form-urlencoded et à ajouter un en‑tête Authorization: Basic … où … est la chaîne Base64 de client_id:client_secret. Cet en‑tête est illustré dans l’exemple de la documentation[12].
+ 
+Vous pouvez utiliser un outil comme curl ou Postman pour envoyer cette requête. Le même tutoriel fournit un exemple avec curl montrant l’envoi des paramètres encodés et la récupération du access_token et du refresh_token[10]. La réponse JSON contient :
+
+•	access_token : token à courte durée de vie (24 heures maximum[11]) utilisé pour interroger l’API SmartThings ;
+•	refresh_token : token valable 30 jours qui permet d’obtenir un nouvel access_token sans repasser par l’étape d’autorisation[11] ;
+•	expires_in : durée de validité du jeton d’accès en secondes.
+
+Enregistrez précieusement votre refresh_token ; l’application Lunar Sensor MenuBar utilise ce jeton pour renouveler automatiquement l’accès. L’access_token initial peut également être renseigné, mais il sera rafraîchi à l’exécution.
+
+#### Remarque : si vous utilisez un outil graphique comme Postman, veillez à encoder les paramètres en x-www-form-urlencoded et à ajouter un en‑tête Authorization: Basic … où … est la chaîne Base64 de client_id:client_secret. Cet en‑tête est illustré dans l’exemple de la documentation[12].
  
 ## 5 – Obtenir l’identifiant du capteur (Device ID)
 L’application a besoin de l’identifiant unique du capteur de luminosité afin de récupérer ses mesures. Voici comment l’obtenir :
