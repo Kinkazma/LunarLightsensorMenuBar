@@ -20,7 +20,10 @@ A macOS menu bar utility that forwards ambient light data from a SmartThings sen
 4. If needed, adjust OAuth scopes in `Constants.swift`.
 
 ## Usage
-The status bar icon displays `ALS Mac` when using the Mac's sensor or `TV Samsung` when the SmartThings sensor is active. Use the menu to tweak polling intervals and enable smoothing.
+The status bar icon displays `ALS Mac` when using the Mac's sensor or `TV Name` when the SmartThings sensor is active. Use the menu to tweak polling intervals and enable smoothing.
+
+## Plus d'infos.
+See [DetailledReadme.md](DetailledReadme.md) to have a very detailed explanation of the installation procedure. 
 
 ## Security
 See [SECURITY.md](SECURITY.md) for supported versions and reporting guidelines.
