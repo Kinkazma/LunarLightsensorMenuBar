@@ -17,4 +17,4 @@ LunarSensorMenuBar is an open source macOS utility that forwards ambient light r
 This project is delivered **as is** with no guarantee of updates, bug fixes or security patches. Use the latest commit from this repository if you wish to track changes.
 
 ## Reporting Security Issues
-If you believe you have found a vulnerability, please open a GitHub issue. There is no formal response schedule, but issues will be reviewed when possible. Include as much detail as you can so the problem can be reproduced.
+If you believe you have found a vulnerability, please open a GitHub issue.
