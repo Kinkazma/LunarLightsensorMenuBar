@@ -12,7 +12,7 @@ Lunar Sensor MenuBar est une utilitaire macOS. Lorsqu’un téléviseur exte
 •	Un capteur de luminosité (par exemple un capteur Zigbee SmartThings) déjà associé à votre compte SmartThings.
 
 ## 1 – Créer ou activer votre compte SmartThings développeur
-1.	Rendez‑vous sur account.samsung.com et créez un compte Samsung si vous n’en possédez pas déjà un. Ce compte est utilisé par toutes les applications Samsung, y compris SmartThings.
+1.	Rendez‑vous sur `account.samsung.com` et créez un compte Samsung si vous n’en possédez pas déjà un. Ce compte est utilisé par toutes les applications Samsung, y compris SmartThings.
 2.	Ouvrez ensuite la SmartThings Developer Workspace et cliquez sur « Sign In With Samsung Account » pour vous connecter. La documentation rappelle qu’il est nécessaire de « se connecter à son compte Samsung et à la Developer Workspace » avant de créer une SmartApp[1].
 3.	Lors de la première connexion au Workspace, suivez les instructions pour accepter les conditions d’utilisation et activer votre accès développeur.
 
@@ -47,10 +47,10 @@ La CLI vous pose une série de questions. D’après la documentation OAuth Int
 2.	Description : courte description pour identifier l’intégration.
 3.	Icone (URL) : facultatif (laisser vide si vous n’en avez pas).
 4.	Target URL : laissez vide (notre application n’héberge pas de webhook).
-5.	Permissions (scopes) : sélectionnez les permissions r:devices:*, w:devices:* et x:devices:*. Ces scopes sont nécessaires pour lire les informations d’un appareil, écrire et exécuter des commandes. Un tutoriel confirme que, lors de la création, on choisit ces scopes [6].
-6.	Redirect URI : ajoutez une URL HTTPS valide vers laquelle SmartThings pourra rediriger l’utilisateur après l’autorisation. Un exemple courant est https://httpbin.org/get[7], mais vous pouvez utiliser n’importe quelle URL en HTTPS (elle n’a pas besoin d’exister dans notre cas ; seuls le domaine et le protocole doivent être valides).
-7.	À la fin, la CLI affiche un récapitulatif des informations saisies ainsi qu’une section OAuth Info contenant le client id et le client secret. Les informations ne seront plus affichées ensuite, notez‑les soigneusement. Le tutoriel illustre cette étape et montre que l’on obtient un OAuth Client Id et un OAuth Client Secret[8].
-8.	Conservez également le Redirect URI que vous avez déclaré et les permissions choisies ; elles devront être renseignées dans l’application.
+5.	Permissions (scopes) : sélectionnez les permissions `r:devices:*, w:devices:* et x:devices:*`. Ces scopes sont nécessaires pour lire les informations d’un appareil, écrire et exécuter des commandes. C'est lors de la création, qu'on choisit ces scopes [6].
+6.	Redirect URI : ajoutez une URL `HTTPS` valide vers laquelle SmartThings pourra rediriger l’utilisateur après l’autorisation. Un exemple courant est `https://httpbin.org/get`[7], mais vous pouvez utiliser n’importe quelle URL en HTTPS (elle n’a pas besoin d’exister dans notre cas ; seuls le domaine et le protocole doivent être valides).
+7.	À la fin, la CLI affiche un récapitulatif des informations saisies ainsi qu’une section OAuth Info contenant le `client id` et le `client secret`. **Les informations ne seront plus affichées ensuite, notez‑les soigneusement.** Ce tutoriel illustre cette étape et montre que l’on obtient un OAuth Client Id et un OAuth Client Secret[8].
+8.	Conservez également le `Redirect URI` que vous avez déclaré et les permissions choisies ; elles devront être renseignées dans l’application.
 
 ## 4 – Générer les jetons OAuth (Code d’autorisation et jetons)
 L’étape suivante consiste à obtenir un code d’autorisation, puis à l’échanger contre un jeton d’accès et un jeton de rafraîchissement.
@@ -59,12 +59,12 @@ Pour obtenir le code d’autorisation, construisez une URL selon le modèle suiv
 	
 	https://api.smartthings.com/oauth/authorize?client_id=<CLIENT_ID>&response_type=code&redirect_uri=<REDIRECT_URI>&scope=r:devices:*+w:devices:*+x:devices:*
 
-Remplacez <CLIENT_ID> par votre client id et <REDIRECT_URI> par l’URI de redirection définie précédemment. Le guide « SmartThings API : Taming the OAuth 2.0 Beast » propose un exemple d’URL où les scopes sont concaténés par des symboles +[9].
-Ouvrez cette URL dans votre navigateur, connectez‑vous à votre compte Samsung/SmartThings et cliquez sur Autoriser. Vous êtes redirigé vers votre redirect_uri et l’URL contient un paramètre code=<valeur>. Copiez cette valeur : c’est votre code d’autorisation.
+Remplacez `<CLIENT_ID>` par votre client id et `<REDIRECT_URI>` par l’URI de redirection définie précédemment. Le guide « SmartThings API : Taming the OAuth 2.0 Beast » propose un exemple d’URL où les scopes sont concaténés par des symboles +[9].
+Ouvrez cette URL dans votre navigateur, connectez‑vous à votre compte Samsung/SmartThings et cliquez sur Autoriser. Vous êtes redirigé vers votre redirect_uri et l’URL contient un paramètre `code=<valeur>`. Copiez cette valeur : c’est votre code d’autorisation.
 
 ### 4.2 Échanger le code contre des jetons
 
-L’échange s’effectue via une requête HTTP POST vers https://api.smartthings.com/oauth/token avec les paramètres suivants :
+L’échange s’effectue via une requête HTTP POST vers `https://api.smartthings.com/oauth/token` avec les paramètres suivants :
 
 	grant_type=authorization_code client_id=<CLIENT_ID> client_secret=<CLIENT_SECRET> redirect_uri=<REDIRECT_URI> code=<AUTH_CODE> scope=r:devices:*+w:devices:*+x:devices:*
  
@@ -80,12 +80,12 @@ Enregistrez précieusement votre refresh_token ; l’application Lunar Sensor�
  
 ## 5 – Obtenir l’identifiant du capteur (Device ID)
 L’application a besoin de l’identifiant unique du capteur de luminosité afin de récupérer ses mesures. Voici comment l’obtenir :
-1.	Ouvrez votre navigateur et connectez‑vous à l’ancienne console SmartThings à l’adresse account.smartthings.com (utilisez les mêmes identifiants que sur l’application).
-2.	Une fois sur le tableau de bord, cliquez sur le capteur dont vous souhaitez récupérer la luminosité. La documentation d’un plugin Homebridge explique que lorsqu’on clique sur un appareil, « un popup s’ouvre et sur la gauche se trouve le device_id (par exemple 5d9215vx-c421-4e12-a998-c4ec48754f08) »[13]. Copiez la valeur indiquée.
+1.	Ouvrez votre navigateur et connectez‑vous à l’ancienne console SmartThings à l’adresse `account.smartthings.com` (utilisez les mêmes identifiants que sur l’application).
+2.	Une fois sur le tableau de bord, cliquez sur le capteur dont vous souhaitez récupérer la luminosité. La documentation d’un plugin Homebridge explique que lorsqu’on clique sur un appareil, « un popup s’ouvre et sur la gauche se trouve le device_id (par exemple `5d9215vx-c421-4e12-a998-c4ec48754f08`) »[13]. Copiez la valeur indiquée.
 3.	Ce Device ID correspond au capteur de luminosité (et non à la télévision) et devra être renseigné dans l’application.
 
 ## 6 – Déterminer le nom de votre téléviseur (TV Name)
-L’application détecte la présence de votre téléviseur en analysant la sortie de la commande system_profiler SPDisplaysDataType. Le nom affiché doit donc être identique à celui retourné par macOS :
+L’application détecte la présence de votre téléviseur en analysant la sortie de la commande `system_profiler SPDisplaysDataType`. Le nom affiché doit donc être identique à celui retourné par macOS :
 1.	Ouvrez le Terminal et exécutez :
 	
 		system_profiler SPDisplaysDataType
@@ -100,7 +100,7 @@ L’application détecte la présence de votre téléviseur en analysant la sort
 5.	Client ID et Client Secret : obtenus lors de la création de l’app via la CLI ;
 6.	Refresh Token : issu de l’échange du code d’autorisation ;
 7.	Device ID : identifiant du capteur de luminosité ;
-8.	Redirect URI : l’URI utilisée pendant la création (ex. https://httpbin.org/get).
+8.	Redirect URI : l’URI utilisée pendant la création (ex. `https://httpbin.org/get`).
 9.	Validez. L’application enregistre ces paramètres, initialise les jetons via OAuthManager et commence à interroger SmartThings lorsque le téléviseur est détecté.
 
 ## 8 – Utilisation du menu et description des fonctions
@@ -144,7 +144,7 @@ Ferme l’application et arrête le serveur HTTP local.
 ## 9 – Conseils et dépannage
 •	TV non détectée ? Vérifiez que le nom saisi dans TV Name correspond exactement à celui affiché par system_profiler. Les minuscules/majuscules et les espaces comptent. Vous pouvez aussi activer dans le code la version alternative de isTVDected() qui détecte tout écran « non‑Apple » (voir les commentaires dans StatusBarController.swift).
 •	Jetons expirés : si la vérification des jetons échoue, utilisez le menu Reconnecter SmartThings pour générer un nouveau code d’autorisation. Pensez également à mettre à jour le refresh_token dans la configuration si vous l’avez régénéré via Postman.
-•	Erreur lors de la création de la SmartApp : assurez‑vous d’avoir choisi les bons scopes et d’avoir saisi une URI de redirection en HTTPS. L’outil smartthings apps:create vous guidera étape par étape[15].
+•	Erreur lors de la création de la SmartApp : assurez‑vous d’avoir choisi les bons scopes et d’avoir saisi une URI de redirection en `HTTPS`. L’outil smartthings apps:create vous guidera étape par étape[15].
 •	Installation de la CLI impossible : vérifiez que Homebrew est installé correctement en exécutant brew doctor. Suivez ensuite les conseils de l’installateur Homebrew pour corriger les éventuels problèmes[2].
 
 #### En suivant ce guide, vous devriez disposer d’une intégration complète entre votre capteur de luminosité SmartThings et Lunar. L’application se charge ensuite de la gestion des jetons et du rafraîchissement automatique pour que la synchronisation de la luminosité reste transparente.
