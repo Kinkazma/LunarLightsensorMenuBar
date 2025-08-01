@@ -2,7 +2,7 @@
 [DetailledReadme.md](DetailledReadme.md)
 
 A macOS menu bar utility that forwards ambient light data from a SmartThings sensor to [Lunar Pro](https://github.com/alin23/Lunar). When a specified television is detected, the app polls SmartThings for illuminance readings and exposes them over a local HTTP server so Lunar can synchronize your display brightness.
-Another solution provided by the developer exists, and you will find it [here](https://github.com/alin23/lunarsensor).
+Another solution provided by the Lunar developer exists, and you will find it [here](https://github.com/alin23/lunarsensor).
 
 ## Features
 - Detects a configured external display and switches Lunar between the Mac's own ambient light sensor and SmartThings.
